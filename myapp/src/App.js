@@ -7,10 +7,22 @@ function Header() {
   );
 }
 
+function Card() {
+  return (
+    <div>
+      <h2>I am a Card</h2>
+      <p>This is a reusable component</p>
+    </div>
+  );
+}
+
 function App() {
   return (
     <div>
       <Header />
+      <Card />
+      <Card />
+      <Card />
     </div>
   );
 }
