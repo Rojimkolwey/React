@@ -1,17 +1,8 @@
-function Header() {
+function Card(props) {
   return (
     <div>
-      <h1>My React App</h1>
-      <p>Welcome to my first React site</p>
-    </div>
-  );
-}
-
-function Card() {
-  return (
-    <div>
-      <h2>I am a Card</h2>
-      <p>This is a reusable component</p>
+      <h2>{props.title}</h2>
+      <p>{props.description}</p>
     </div>
   );
 }
@@ -19,10 +10,9 @@ function Card() {
 function App() {
   return (
     <div>
-      <Header />
-      <Card />
-      <Card />
-      <Card />
+      <Card title="Football" description="I love watching football" />
+      <Card title="Coding" description="Learning React is fun" />
+      <Card title="Music" description="I enjoy listening to music" />
     </div>
   );
 }
