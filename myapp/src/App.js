@@ -1,8 +1,15 @@
-function Card(props) {
+import { useState } from 'react';
+
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
   return (
     <div>
-      <h2>{props.title}</h2>
-      <p>{props.description}</p>
+      <h2>Count: {count}</h2>
+      <button onClick={() => setCount(count + 1)}>Increase</button>
+      <button onClick={() => setCount(count - 1)}>Decrease</button>
+      <button onClick={() => setCount(0)}>Reset</button>
     </div>
   );
 }
@@ -10,9 +17,7 @@ function Card(props) {
 function App() {
   return (
     <div>
-      <Card title="Football" description="I love watching football" />
-      <Card title="Coding" description="Learning React is fun" />
-      <Card title="Music" description="I enjoy listening to music" />
+      <Counter />
     </div>
   );
 }
