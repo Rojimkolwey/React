@@ -1,25 +1,16 @@
 import { useState } from 'react';
 
-function Form() {
-  const [name, setName] = useState('');
-  const [submitted, setSubmitted] = useState(false);
+const fruits = ['Mango', 'Banana', 'Apple', 'Pineapple', 'Orange'];
 
-  function handleSubmit() {
-    setSubmitted(true);
-  }
-
+function FruitList() {
   return (
     <div>
-      <h2>Enter Your Name</h2>
-      <input
-        type="text"
-        placeholder="Type your name..."
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <button onClick={handleSubmit}>Submit</button>
-
-      {submitted && <h3>Hello, {name}!</h3>}
+      <h2>Fruit List</h2>
+      <ul>
+        {fruits.map((fruit, index) => (
+          <li key={index}>{fruit}</li>
+        ))}
+      </ul>
     </div>
   );
 }
@@ -27,7 +18,7 @@ function Form() {
 function App() {
   return (
     <div>
-      <Form />
+      <FruitList />
     </div>
   );
 }
