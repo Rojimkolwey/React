@@ -10,6 +10,9 @@ function FruitList() {
         {fruits.map((fruit, index) => (
           <li key={index}>{fruit}</li>
         ))}
+        <ul>
+           <h2>Fruit List</h2>
+        </ul>
       </ul>
     </div>
   );
