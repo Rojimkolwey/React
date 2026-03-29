@@ -1,19 +1,16 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-const fruits = ['Mango', 'Banana', 'Apple', 'Pineapple', 'Orange'];
+function Counter() {
+  const [count, setCount] = useState(0);
 
-function FruitList() {
+  useEffect(() => {
+    document.title = `You clicked ${count} times`;
+  }, [count]);
+
   return (
     <div>
-      <h2>Fruit List</h2>
-      <ul>
-        {fruits.map((fruit, index) => (
-          <li key={index}>{fruit}</li>
-        ))}
-        <ul>
-           <h2>Fruit List</h2>
-        </ul>
-      </ul>
+      <h2>Count: {count}</h2>
+      <button onClick={() => setCount(count + 1)}>Click Me</button>
     </div>
   );
 }
@@ -21,7 +18,7 @@ function FruitList() {
 function App() {
   return (
     <div>
-      <FruitList />
+      <Counter />
     </div>
   );
 }
