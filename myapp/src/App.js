@@ -1,16 +1,22 @@
 import { useState, useEffect } from 'react';
 
-function Counter() {
-  const [count, setCount] = useState(0);
+function Users() {
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    document.title = `You clicked ${count} times`;
-  }, [count]);
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then((res) => res.json())
+      .then((data) => setUsers(data));
+  }, []);
 
   return (
     <div>
-      <h2>Count: {count}</h2>
-      <button onClick={() => setCount(count + 1)}>Click Me</button>
+      <h2>Users</h2>
+      <ul>
+        {users.map((user) => (
+          <li key={user.id}>{user.name}</li>
+        ))}
+      </ul>
     </div>
   );
 }
@@ -18,7 +24,7 @@ function Counter() {
 function App() {
   return (
     <div>
-      <Counter />
+      <Users />
     </div>
   );
 }
