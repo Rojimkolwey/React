@@ -1,20 +1,30 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
-function Users() {
-  const [users, setUsers] = useState([]);
+function FruitList() {
+  const [fruits, setFruits] = useState(['Mango', 'Banana', 'Apple']);
+  const [newFruit, setNewFruit] = useState('');
 
-  useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/users')
-      .then((res) => res.json())
-      .then((data) => setUsers(data));
-  }, []);
+  function addFruit() {
+    if (newFruit === '') return;
+    setFruits([...fruits, newFruit]);
+    setNewFruit('');
+  }
 
   return (
     <div>
-      <h2>Users</h2>
+      <h2>Fruit List</h2>
+
+      <input
+        type="text"
+        placeholder="Add a fruit..."
+        value={newFruit}
+        onChange={(e) => setNewFruit(e.target.value)}
+      />
+      <button onClick={addFruit}>Add</button>
+
       <ul>
-        {users.map((user) => (
-          <li key={user.id}>{user.name}</li>
+        {fruits.map((fruit, index) => (
+          <li key={index}>{fruit}</li>
         ))}
       </ul>
     </div>
@@ -24,7 +34,7 @@ function Users() {
 function App() {
   return (
     <div>
-      <Users />
+      <FruitList />
     </div>
   );
 }
