@@ -1,40 +1,15 @@
-import { useState } from 'react';
-
-function FruitList() {
-  const [fruits, setFruits] = useState(['Mango', 'Banana', 'Apple']);
-  const [newFruit, setNewFruit] = useState('');
-
-  function addFruit() {
-    if (newFruit === '') return;
-    setFruits([...fruits, newFruit]);
-    setNewFruit('');
-  }
-
-  return (
-    <div>
-      <h2>Fruit List</h2>
-
-      <input
-        type="text"
-        placeholder="Add a fruit..."
-        value={newFruit}
-        onChange={(e) => setNewFruit(e.target.value)}
-      />
-      <button onClick={addFruit}>Add</button>
-
-      <ul>
-        {fruits.map((fruit, index) => (
-          <li key={index}>{fruit}</li>
-        ))}
-      </ul>
-    </div>
-  );
-}
+import Header from './components/Header';
+import Card from './components/Card';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <div>
-      <FruitList />
+      <Header />
+      <Card title="Football" description="I love watching football" />
+      <Card title="Coding" description="Learning React is fun" />
+      <Card title="Music" description="I enjoy listening to music" />
+      <Footer />
     </div>
   );
 }
