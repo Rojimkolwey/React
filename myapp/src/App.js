@@ -1,17 +1,20 @@
-import Header from './components/Header';
-import Card from './components/Card';
-import Footer from './components/Footer';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import About from './pages/About';
+import Contact from './pages/Contact';
 import './App.css';
 
 function App() {
   return (
-    <div>
-      <Header />
-      <Card title="Football" description="I love watching football" />
-      <Card title="Coding" description="Learning React is fun" />
-      <Card title="Music" description="I enjoy listening to music" />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
