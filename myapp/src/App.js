@@ -1,23 +1,25 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { ThemeProvider } from './context/ThemeContext';
-import Navbar from './components/Navbar';
-import Home from './pages/Home';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import './App.css';
+import { useState } from 'react';
+
+function slowCalculation(num) {
+  console.log('Calculating...');
+  for (let i = 0; i < 1000000000; i++) {} // slow on purpose
+  return num * 2;
+}
 
 function App() {
+  const [number, setNumber] = useState(1);
+  const [count, setCount] = useState(0);
+
+  const result = slowCalculation(number);
+
   return (
-    <ThemeProvider>
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </BrowserRouter>
-    </ThemeProvider>
+    <div style={{ padding: '40px' }}>
+      <h2>Result: {result}</h2>
+      <button onClick={() => setNumber(number + 1)}>Change Number</button>
+
+      <h2>Count: {count}</h2>
+      <button onClick={() => setCount(count + 1)}>Increase Count</button>
+    </div>
   );
 }
 
