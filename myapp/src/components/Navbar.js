@@ -10,15 +10,21 @@ function Navbar() {
     padding: '15px 20px',
     display: 'flex',
     gap: '20px',
-    alignItems: 'center'
+    alignItems: 'center',
+    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+  };
+
+  const linkStyle = {
+    color: darkMode ? 'white' : '#282c34',
+    textDecoration: 'none',
+    fontWeight: 'bold'
   };
 
   return (
     <nav style={navStyle}>
-      <Link to="/" style={{ color: darkMode ? 'white' : 'black' }}>Home</Link>
-      <Link to="/about" style={{ color: darkMode ? 'white' : 'black' }}>About</Link>
-      <Link to="/contact" style={{ color: darkMode ? 'white' : 'black' }}>Contact</Link>
-      <button onClick={toggleTheme}>
+      <Link to="/" style={linkStyle}>🏠 Home</Link>
+      <Link to="/tasks" style={linkStyle}>📝 Tasks</Link>
+      <button onClick={toggleTheme} style={{ marginLeft: 'auto' }}>
         {darkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
       </button>
     </nav>

@@ -1,25 +1,21 @@
-import { useState } from 'react';
-
-function slowCalculation(num) {
-  console.log('Calculating...');
-  for (let i = 0; i < 1000000000; i++) {} // slow on purpose
-  return num * 2;
-}
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from './context/ThemeContext';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import Tasks from './pages/Tasks';
+import './App.css';
 
 function App() {
-  const [number, setNumber] = useState(1);
-  const [count, setCount] = useState(0);
-
-  const result = slowCalculation(number);
-
   return (
-    <div style={{ padding: '40px' }}>
-      <h2>Result: {result}</h2>
-      <button onClick={() => setNumber(number + 1)}>Change Number</button>
-
-      <h2>Count: {count}</h2>
-      <button onClick={() => setCount(count + 1)}>Increase Count</button>
-    </div>
+    <ThemeProvider>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/tasks" element={<Tasks />} />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
