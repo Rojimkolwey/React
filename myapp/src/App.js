@@ -3,6 +3,7 @@ import { ThemeProvider } from './context/ThemeContext';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Tasks from './pages/Tasks';
+import Weather from './pages/Weather';
 import './App.css';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/tasks" element={<Tasks />} />
+          <Route path="/weather" element={<Weather />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
