@@ -6,11 +6,13 @@ function Tasks() {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState('');
 
+  // Load tasks from localStorage when page loads
   useEffect(() => {
     const saved = localStorage.getItem('tasks');
     if (saved) setTasks(JSON.parse(saved));
   }, []);
 
+  // Save tasks to localStorage whenever tasks change
   useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }, [tasks]);
