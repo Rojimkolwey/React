@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
+<Link to="/weather" style={linkStyle}>🌤️ Weather</Link>
 
 function Navbar() {
   const { darkMode, toggleTheme } = useTheme();
