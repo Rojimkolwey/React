@@ -15,7 +15,7 @@ function Weather() {
     setError('');
 
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
+      `969c4dd9661cfd0516858e94f2cefd20`
     )
       .then((res) => {
         if (!res.ok) throw new Error('City not found');
