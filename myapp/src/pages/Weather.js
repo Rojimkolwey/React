@@ -8,14 +8,14 @@ function Weather() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const API_KEY = 'YOUR_API_KEY_HERE'; // paste your key here
+  const API_KEY = 'ac1f0b4a862bb4414fc8934feb495b4b'; // paste your key here
 
   function fetchWeather() {
     setLoading(true);
     setError('');
 
     fetch(
-      `ac1f0b4a862bb4414fc8934feb495b4b.openweathermap.org/data/2.5/weather?q=${city}&units=metric`
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`
     )
       .then((res) => {
         if (!res.ok) throw new Error('City not found');
