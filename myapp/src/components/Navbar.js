@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
-<Link to="/weather" style={linkStyle}>🌤️ Weather</Link>
 
 function Navbar() {
   const { darkMode, toggleTheme } = useTheme();
@@ -25,6 +24,7 @@ function Navbar() {
     <nav style={navStyle}>
       <Link to="/" style={linkStyle}>🏠 Home</Link>
       <Link to="/tasks" style={linkStyle}>📝 Tasks</Link>
+      <Link to="/weather" style={linkStyle}>🌤️ Weather</Link>
       <button onClick={toggleTheme} style={{ marginLeft: 'auto' }}>
         {darkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
       </button>
