@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 
+<Link to="/posts" style={linkStyle}>📰 Posts</Link>
+
 function Navbar() {
   const { darkMode, toggleTheme } = useTheme();
 
