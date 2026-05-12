@@ -37,3 +37,18 @@ function Home() {
 }
 
 export default Home;
+
+  return (
+    <div style={pageStyle}>
+      <h1>Welcome to Task Manager 📝</h1>
+      <p style={{ marginTop: '10px', fontSize: '18px' }}>
+        Stay organized, get things done!
+      </p>
+      <Link to="/tasks">
+        <button style={buttonStyle}>Go to My Tasks →</button>
+      </Link>
+    </div>
+  );
+}
+
+export default Home;
